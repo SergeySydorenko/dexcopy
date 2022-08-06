@@ -1,9 +1,10 @@
-import "./main.css";
+import Flex from "../components/Flex";
+
 const Main = (name) =>{
     return(
-        <div className="mainSection">
+        <Flex justify='center'>
             <h2>Main</h2>
-        </div>
+        </Flex>
     )
 }
 

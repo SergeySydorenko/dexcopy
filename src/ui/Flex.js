@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const StyledDiv = styled.div`
     display: ${props => props.display || 'flex'};
-    max-height: 100%;
+    max-height: ${props => props.maxHeight || '100%'};;
     min-height: ${props => props.minHeight || ''};
     font-size: ${props => props.fontSize || '16px'};
     overflow-y: ${props => props.overflow || ''};

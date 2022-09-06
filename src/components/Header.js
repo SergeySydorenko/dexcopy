@@ -92,7 +92,7 @@ const Header = (props)=>{
                     hoverbackgroundcolor='#984063' 
                     color='white' 
                     minwidth='100px' 
-                    fontsize='20px'
+                    fontSize='20px'
                 >
                     Home
                 </HomeButton>

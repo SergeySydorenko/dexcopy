@@ -14,7 +14,8 @@ const FlexBook = styled(Flex)`
     @media (max-width: 768px) {
         flex-direction: row;
         /* flex-wrap: nowrap; */
-        align-items: center;
+        align-items: flex-start;
+        justify-items: flex-start;
     }
 `
 const BookInfo = styled(Flex)`
@@ -30,9 +31,10 @@ const StyledImage = styled.img`
             width: 140px;
             height: 215px;
             margin: 0 20px 0 0;
-            object-fit: fill;
             @media (max-width: 768px) {
                 width: 100px;
+                min-width: 100px;
+                margin: 0 10px 0 0;
                 height: 140px;
             }
     `
@@ -70,10 +72,10 @@ const Book = ({bookData, short}) => {
 
     if(short){
         return(
-            <LinkBook to={`/id=${book.id}`} width='150px' height='300px' margin='10px 10px' padding='5px' overflow='hidden'>
-                <FlexBook direction="column" width='100%' onClick={() => console.log(book?.id)} overflow='hidden'>
+            <LinkBook to={`/id=${book.id}`} width='150px' height='300px' margin='5px 5px' padding='5px' overflow='hidden'>
+                <FlexBook direction="column" width='100%' onClick={() => console.log(book?.id)} overflow='hidden' color='white' fontSize='16px'>
                         <StyledImage src={book?.thumbnailSmall || noImage} ></StyledImage>
-                        <Flex direction='column' overflow='hidden' color='white'>
+                        <Flex direction='column' overflow='hidden' color='white' shrink='1'>
                             {book?.title}
                         </Flex>
                 </FlexBook>
@@ -82,10 +84,10 @@ const Book = ({bookData, short}) => {
     }else{
         return(
             // <LinkStyled to={`/id=${book.id}`} width='150px' height='300px' margin='10px' padding='5px'>
-                <Flex direction="column" width='100%' align='space-around' justify='center' onClick={() => console.log(book?.id)} overflow='auto'>
+                <Flex direction="column" width='90%' align='space-around' justify='center' onClick={() => console.log(book?.id)} overflow='auto' maxHeight=' '>
                         <BookInfo direction='row' justify='center' overflow='hidden'>
                             <StyledImage src={book?.thumbnail || noImage} ></StyledImage>
-                            <Flex direction='column' overflow='auto'>
+                            <Flex direction='column' overflow='hidden'>
                                 <h3 style={overflowHid}>{book?.title}</h3>
                                 <span style={overflowHid}>Author(s): {book?.authors ? book?.authors.map((item)=>item + ' ') : 'Unknown'}</span>
                                 <span>{book?.maturity}</span>

@@ -1,9 +1,45 @@
 import Flex from "../ui/Flex"
 import LinkStyled from "../ui/LinkStyled"
+import styled from "styled-components";
 
 const noImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png';
 
+const LinkBook = styled(LinkStyled)`
+    @media (max-width: 768px) {
+        width: 100%;
+        height: 150px;
+    }
+`
+const FlexBook = styled(Flex)`
+    @media (max-width: 768px) {
+        flex-direction: row;
+        /* flex-wrap: nowrap; */
+        align-items: center;
+    }
+`
+const BookInfo = styled(Flex)`
+    @media (max-width: 768px) {
+        width: 100%;
+        justify-content: flex-start;
+        align-items: center;
+    }
+`
+
+const StyledImage = styled.img`
+            border: 1px solid black;
+            width: 140px;
+            height: 215px;
+            margin: 0 20px 0 0;
+            object-fit: fill;
+            @media (max-width: 768px) {
+                width: 100px;
+                height: 150px;
+            }
+    `
+    
 const Book = ({bookData, short}) => {
+
+
     let book = {
         id: bookData?.id,
         title: bookData.volumeInfo?.title,
@@ -19,20 +55,7 @@ const Book = ({bookData, short}) => {
         pageCount: bookData.volumeInfo.pageCount,
         publichedDate: bookData.volumeInfo.publishedDate
     }
-    let styleImg;
-    if(short){
-        styleImg = {
-            width: '100%',
-            height: '210px'
-            // height: '80%'
-        }
-    }else{
-        styleImg = {
-            width: '200px',
-            height: '320px'
-            // height: '80%'
-        }
-    }
+    
     const overflowHid = {
         overflow: 'hidden',
         fontSize: '15px'
@@ -47,22 +70,22 @@ const Book = ({bookData, short}) => {
 
     if(short){
         return(
-            <LinkStyled to={`/id=${book.id}`} width='150px' height='300px' margin='10px' padding='5px'>
-                <Flex direction="column" width='100%' onClick={() => console.log(book?.id)}>
-                        <img src={book?.thumbnailSmall || noImage} style={styleImg}></img>
+            <LinkBook to={`/id=${book.id}`} width='150px' height='300px' margin='10px' padding='5px'>
+                <FlexBook direction="column" width='100%' onClick={() => console.log(book?.id)}>
+                        <StyledImage src={book?.thumbnailSmall || noImage} ></StyledImage>
                         <Flex direction='column' overflow='hidden' color='white'>
                             <h3 style={overflowHid}>{book?.title}</h3>
                         </Flex>
-                </Flex>
-            </LinkStyled>
+                </FlexBook>
+            </LinkBook>
         )
     }else{
         return(
             // <LinkStyled to={`/id=${book.id}`} width='150px' height='300px' margin='10px' padding='5px'>
-                <Flex direction="column" width='80%' align='space-around' justify='center' onClick={() => console.log(book?.id)}>
-                        <Flex direction='row' justify='flex-start'>
-                            <img src={book?.thumbnail || noImage} style={styleImg}></img>
-                            <Flex direction='column' overflow='hidden' margin='0 0 0 30px'>
+                <Flex direction="column" width='95%' align='space-around' justify='center' onClick={() => console.log(book?.id)}>
+                        <BookInfo direction='row' justify='center'>
+                            <StyledImage src={book?.thumbnail || noImage} ></StyledImage>
+                            <Flex direction='column' overflow='hidden'>
                                 <h3 style={overflowHid}>{book?.title}</h3>
                                 <span style={overflowHid}>Author(s): {book?.authors ? book?.authors.map((item)=>item + ' ') : 'Unknown'}</span>
                                 <span>{book?.maturity}</span>
@@ -73,7 +96,7 @@ const Book = ({bookData, short}) => {
                                 <span>Published date: {book?.publichedDate}</span>
                                 {book?.eBook ? <span>Have eBook</span> : null}
                             </Flex>
-                        </Flex>
+                        </BookInfo>
                         <hr style={margin}/>
                         <p style={font}>
                             {book?.description}

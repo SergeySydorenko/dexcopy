@@ -4,6 +4,7 @@ const StyledDiv = styled.div`
     display: ${props => props.display || 'flex'};
     max-height: 100%;
     min-height: ${props => props.minHeight || ''};
+    max-height: 100vh;
     font-size: ${props => props.fontSize || '16px'};
     overflow-y: ${props => props.overflow || ''};
     flex-shrink: ${props => props.shrink || 'none'};;

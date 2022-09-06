@@ -10,6 +10,14 @@ const StyledForm = styled.form`
     width: 80%;
     /* margin: 5px 0 0 0; */
 `;
+const HomeButton = styled(LinkStyled)`
+    @media (max-width: 768px) {
+        width: 55px;
+        font-size: 16px;
+        margin: 0 0 0 5px;
+    }
+`
+
 const InputFlex = styled(Flex)`
     border: none;
     outline: none;
@@ -22,6 +30,11 @@ const InputFlex = styled(Flex)`
     font-size: 20px;
     &:hover{
         border: 2px solid #f64668;
+    }
+    @media (max-width: 768px){
+        height: 40px;
+        width: 95%;
+        font-size: 16px;
     }
 `;
 const InputButton = styled(Button)`
@@ -49,6 +62,9 @@ const ResetButton = styled(Button)`
         /* color: white; */
         /* transition: .2s; */
     }
+    @media (max-width: 768px){
+        font-size: 15px;
+    }
 `;
 
 const Header = (props)=>{
@@ -67,9 +83,19 @@ const Header = (props)=>{
     
     return(
         <Flex justify='space-between' align='center' position='sticky' height='60px' top='0px' padding='5px' backgroundColor='#41436A'>
-                <LinkStyled to='/' padding='5px' margin='0 0 0 10px' width='100px' backgroundcolor='#fe9677' hoverbackgroundcolor='#984063' color='white' minwidth='100px'>
-                    <h2>Home</h2>
-                </LinkStyled>
+                <HomeButton 
+                    to='/' 
+                    padding='5px' 
+                    margin='0 0 0 10px' 
+                    width='100px' 
+                    backgroundcolor='#fe9677' 
+                    hoverbackgroundcolor='#984063' 
+                    color='white' 
+                    minwidth='100px' 
+                    fontsize='20px'
+                >
+                    Home
+                </HomeButton>
                 <StyledForm onSubmit={e => search(e)}>
                     <InputFlex justify='flex-start' align='center' color='white' width='100%'>
                         <Input placeholder='Book title, author, genre etc.'/>

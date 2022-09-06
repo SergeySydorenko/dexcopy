@@ -56,7 +56,6 @@ const Main = (props) =>{
     try{
     return(
         <Flex direction='column' align='center' width='100%' height='90%' overflow='hidden' padding='1% 0 0 0' backgroundColor='#984063'>
-            <hr ref={myRef}/>
             {bookData ? <h3>Books found: {bookData?.totalItems}</h3> : null}
             {/* <Flex direction='row' width='100%' justify='stretch' height='100%'> */}
                 <Flex direction='row' justify='center' align='center' width="100%" height='100%' overflow='scroll' wrap='wrap' padding='1% 5%'>

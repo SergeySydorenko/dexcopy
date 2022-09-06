@@ -84,7 +84,7 @@ const Book = ({bookData, short}) => {
     }else{
         return(
             // <LinkStyled to={`/id=${book.id}`} width='150px' height='300px' margin='10px' padding='5px'>
-                <Flex direction="column" width='90%' align='space-around' justify='flex-start' onClick={() => console.log(book?.id)} overflow='auto' maxHeight=' '>
+                <Flex direction="column" width='90%' align='space-around' justify='center' onClick={() => console.log(book?.id)} overflow='auto' maxHeight=' '>
                         <BookInfo direction='row' justify='center' overflow='hidden'>
                             <StyledImage src={book?.thumbnail || noImage} ></StyledImage>
                             <Flex direction='column' overflow='hidden'>

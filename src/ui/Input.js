@@ -16,6 +16,9 @@ const StyledInput = styled.input`
         border: 1px solid red;
         transition: 0.3s;
     } */
+    @media (max-width: 768px){
+        font-size: 16px;
+    }
 `
 
 const Input = (props) =>{

@@ -7,7 +7,7 @@ const StyledDiv = styled.div`
     font-size: ${props => props.fontSize || '16px'};
     overflow-y: ${props => props.overflow || ''};
     overflow-x: hidden;
-    flex-shrink: ${props => props.shrink || 'none'};;
+    flex-shrink: ${props => props.shrink || 'none'};
     flex-wrap: ${props => props.wrap || 'none'};
     flex-grow: ${props => props.flexGrow || 'none'};
     top: ${props => props.top || 'auto'};

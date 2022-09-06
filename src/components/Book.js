@@ -72,7 +72,7 @@ const Book = ({bookData, short}) => {
 
     if(short){
         return(
-            <LinkBook to={`/id=${book.id}`} width='150px' height='300px' margin='5px 5px' padding='5px' overflow='hidden'>
+            <LinkBook to={`/id=${book.id}`} width='150px' height='300px' margin='5px 5px' padding='5px' overflow='hidden' justify='center' align='flex-start'>
                 <FlexBook direction="column" width='100%' onClick={() => console.log(book?.id)} overflow='hidden' color='white' fontSize='16px'>
                         <StyledImage src={book?.thumbnailSmall || noImage} ></StyledImage>
                         <Flex direction='column' overflow='hidden' color='white' shrink='1'>
@@ -84,7 +84,7 @@ const Book = ({bookData, short}) => {
     }else{
         return(
             // <LinkStyled to={`/id=${book.id}`} width='150px' height='300px' margin='10px' padding='5px'>
-                <Flex direction="column" width='90%' align='space-around' justify='center' onClick={() => console.log(book?.id)} overflow='auto' maxHeight=' '>
+                <Flex direction="column" width='90%' align='space-around' justify='flex-start' onClick={() => console.log(book?.id)} overflow='auto' maxHeight=' '>
                         <BookInfo direction='row' justify='center' overflow='hidden'>
                             <StyledImage src={book?.thumbnail || noImage} ></StyledImage>
                             <Flex direction='column' overflow='hidden'>

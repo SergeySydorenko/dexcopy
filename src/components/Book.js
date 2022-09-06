@@ -85,7 +85,7 @@ const Book = ({bookData, short}) => {
                 <Flex direction="column" width='95%' align='space-around' justify='center' onClick={() => console.log(book?.id)}>
                         <BookInfo direction='row' justify='center'>
                             <StyledImage src={book?.thumbnail || noImage} ></StyledImage>
-                            <Flex direction='column' overflow='hidden'>
+                            <Flex direction='column' overflow='auto'>
                                 <h3 style={overflowHid}>{book?.title}</h3>
                                 <span style={overflowHid}>Author(s): {book?.authors ? book?.authors.map((item)=>item + ' ') : 'Unknown'}</span>
                                 <span>{book?.maturity}</span>

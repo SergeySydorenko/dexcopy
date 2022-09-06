@@ -82,7 +82,7 @@ const Header = (props)=>{
     }
     
     return(
-        <Flex justify='space-between' align='center' position='sticky' height='60px' top='0px' padding='5px' backgroundColor='#41436A'>
+        <Flex justify='space-between' align='center' position='sticky' height='60px' top='0px' padding='5px' backgroundColor='#41436A' overflow='hidden'>
                 <HomeButton 
                     to='/' 
                     padding='5px' 

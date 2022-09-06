@@ -10,6 +10,10 @@ import Spinner from "./Spinner";
 const FlexButtons = styled(Flex)`
     border-top: 2px solid black;
     background-color: #984063;
+    @media (max-width: 768px){
+        font-size: 16px;
+        padding: 0 0 5px 0;
+    }
 `
 
 const Main = (props) =>{
@@ -58,7 +62,7 @@ const Main = (props) =>{
         <Flex direction='column' align='center' width='100%' height='90%' overflow='hidden' padding='1% 0 0 0' backgroundColor='#984063'>
             {bookData ? <h3>Books found: {bookData?.totalItems}</h3> : null}
             {/* <Flex direction='row' width='100%' justify='stretch' height='100%'> */}
-                <Flex direction='row' justify='center' align='center' width="100%" height='100%' overflow='scroll' wrap='wrap' padding='1% 5%'>
+                <Flex direction='row' justify='center' align='center' width="100%" height='100%' overflow='scroll' wrap='wrap'>
                     {bookData ? bookData?.items.map((item) =>
                         // <LinkStyled to={`/id=${item.id}`} key={item.id} >
                             <Book bookData={item} short='true' key={item.id}/>
@@ -69,8 +73,8 @@ const Main = (props) =>{
                 </Flex>
                 {totalPages ? 
                     <FlexButtons padding='0 0 10px 0' color='white' width='100%' justify='center'>
-                        <Button colorhover='white' onClick={()=>changePage('back')} padding='5px' margin='5px 0 0 10px' width='100px' backgroundcolor='#fe9677' bgColorHover='#984063' minwidth='100px'>Previous</Button>
-                        <Button colorhover='white' onClick={()=>changePage('forward')} padding='5px' margin='5px 0 0 10px' width='100px' backgroundcolor='#fe9677' bgColorHover='#984063' minwidth='100px'>Next</Button>
+                        <Button overflow='hidden' colorhover='white' onClick={()=>changePage('back')} padding='5px' margin='5px 0 0 10px' width='100px' backgroundcolor='#fe9677' bgColorHover='#984063' minwidth='100px'>Previous</Button>
+                        <Button overflow='hidden' colorhover='white' onClick={()=>changePage('forward')} padding='5px' margin='5px 0 0 10px' width='100px' backgroundcolor='#fe9677' bgColorHover='#984063' minwidth='100px'>Next</Button>
                     </FlexButtons>
                     
                 : null}

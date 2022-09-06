@@ -33,7 +33,7 @@ const StyledImage = styled.img`
             object-fit: fill;
             @media (max-width: 768px) {
                 width: 100px;
-                height: 150px;
+                height: 140px;
             }
     `
     
@@ -70,11 +70,11 @@ const Book = ({bookData, short}) => {
 
     if(short){
         return(
-            <LinkBook to={`/id=${book.id}`} width='150px' height='300px' margin='10px' padding='5px'>
-                <FlexBook direction="column" width='100%' onClick={() => console.log(book?.id)}>
+            <LinkBook to={`/id=${book.id}`} width='150px' height='300px' margin='10px 10px' padding='5px' overflow='hidden'>
+                <FlexBook direction="column" width='100%' onClick={() => console.log(book?.id)} overflow='hidden'>
                         <StyledImage src={book?.thumbnailSmall || noImage} ></StyledImage>
                         <Flex direction='column' overflow='hidden' color='white'>
-                            <h3 style={overflowHid}>{book?.title}</h3>
+                            {book?.title}
                         </Flex>
                 </FlexBook>
             </LinkBook>
@@ -82,8 +82,8 @@ const Book = ({bookData, short}) => {
     }else{
         return(
             // <LinkStyled to={`/id=${book.id}`} width='150px' height='300px' margin='10px' padding='5px'>
-                <Flex direction="column" width='95%' align='space-around' justify='center' onClick={() => console.log(book?.id)}>
-                        <BookInfo direction='row' justify='center'>
+                <Flex direction="column" width='100%' align='space-around' justify='center' onClick={() => console.log(book?.id)} overflow='auto'>
+                        <BookInfo direction='row' justify='center' overflow='hidden'>
                             <StyledImage src={book?.thumbnail || noImage} ></StyledImage>
                             <Flex direction='column' overflow='auto'>
                                 <h3 style={overflowHid}>{book?.title}</h3>

@@ -73,10 +73,10 @@ const Header = (props)=>{
                 <StyledForm onSubmit={e => search(e)}>
                     <InputFlex justify='flex-start' align='center' color='white' width='100%'>
                         <Input placeholder='Book title, author, genre etc.'/>
-                        <ResetButton fontSize='16px' type='reset'>X</ResetButton>
-                        <InputButton fontSize='16px'>
+                        <ResetButton fontSize='16px' type='reset' margin='0 10px 0 0'>X</ResetButton>
+                        {/* <InputButton fontSize='16px'>
                             Search
-                        </InputButton>
+                        </InputButton> */}
                     </InputFlex>
                 </StyledForm>
         </Flex>

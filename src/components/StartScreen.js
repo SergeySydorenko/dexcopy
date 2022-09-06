@@ -6,14 +6,19 @@ const StartScreenStyle = styled(Flex)`
     background-repeat: no-repeat;
     background-size: 100% 100%;
     color: #41436a;
-    font-size: 25px;
+`
+const PStyled = styled.p`
+    margin: 15px;
+    font-size: 24px;
+    font-weight: 700;
+
 `
 
 const StartScreen = () =>{
 
     return(
         <StartScreenStyle justify="flex-start" height='100%' width='100%' align='flex-start'>
-            “There is no friend as loyal as a book.”― Ernest Hemingway
+            <PStyled>“There is no friend as loyal as a book.”― Ernest Hemingway</PStyled>
         </StartScreenStyle>
     )
 }

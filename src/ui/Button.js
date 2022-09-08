@@ -2,11 +2,12 @@ import styled from "styled-components";
 
 const StyledButton = styled.button`
     cursor: pointer;    
+    color: white;
     float: ${props => props.float || 'none'};
     background-color: ${props => props.backgroundcolor || 'transparent'};
     overflow: ${props => props.overflow || 'auto'};
     font-size: ${props => props.fontSize || '20px'};
-    border: ${props => props.border || 'none'};
+    border: ${props => props.border || '1px solid white'};
     width: ${props => props.width || 'auto'};
     height: ${props => props.height || 'auto'};
     margin: ${props => props.margin || '0'};

@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 import BookPage from './components/BookPage';
 import Main from './components/Main'
-import StartScreen from './components/StartScreen';
+import Header from './components/Header';
 import About from './components/About'
 
 
@@ -28,17 +28,17 @@ root.render(
         <Global/>
         <Routes> 
             <Route path="/" element={<App />}>
-              <Route path="/" element={<StartScreen/>}></Route>
+              <Route path="/" element={<Header/>}></Route>
               <Route path="search=:id" element={<Main />}>
               </Route>
               <Route path="/id=:id" element={<BookPage />}>
-              </Route>
-              <Route path="/about" element={<About/>}>
               </Route>
               <Route
                 path="*"
                 element={<div>Page not found. Try to press 'Home' button.</div>}
               />
+            </Route>
+            <Route path="/about" element={<About/>}>
             </Route>
         </Routes>
       </BrowserRouter>

@@ -6,10 +6,10 @@ import { useEffect, useState, useRef } from "react";
 import Button from "../ui/Button";
 import styled from "styled-components";
 import Spinner from "./Spinner";
+import { LinkArrow } from "../ui/LinkStyled";
 
 const FlexButtons = styled(Flex)`
-    border-top: 2px solid black;
-    background-color: #984063;
+    /* border-top: 2px solid black; */
     @media (max-width: 768px){
         font-size: 16px;
         padding: 0 0 5px 0;
@@ -44,11 +44,11 @@ const Main = (props) =>{
     const changePage = (movePage) =>{
         if(movePage == 'forward' && page < totalPages){
             setPage(Number(page+20));
-            myRef.current.scrollIntoView();
+            // myRef.current.scrollIntoView();
         }
         if(movePage == 'back' && page > 1){
             setPage(Number(page-20));
-            myRef.current.scrollIntoView();
+            // myRef.current.scrollIntoView();
         }
     }
 
@@ -59,8 +59,9 @@ const Main = (props) =>{
 
     try{
     return(
-        <Flex direction='column' align='center' width='100%' height='90%' overflow='hidden' padding='1% 0 0 0' backgroundColor='#984063'>
-            {bookData ? <h3>Books found: {bookData?.totalItems}</h3> : null}
+        <Flex direction='column' align='center' width='100%' height='100%' overflow='hidden' padding='0 0 0 0' backgroundColor='#41436A'>
+            <LinkArrow/>
+            {/* {bookData ? <h3>Books found: {bookData?.totalItems}</h3> : null} */}
             {/* <Flex direction='row' width='100%' justify='stretch' height='100%'> */}
                 <Flex direction='row' justify='center' align='center' width="100%" height='100%' overflow='scroll' wrap='wrap'>
                     {bookData ? bookData?.items.map((item) =>
@@ -72,9 +73,9 @@ const Main = (props) =>{
                         }
                 </Flex>
                 {totalPages ? 
-                    <FlexButtons padding='0 0 10px 0' color='white' width='100%' justify='center'>
-                        <Button overflow='hidden' colorhover='white' onClick={()=>changePage('back')} padding='5px' margin='5px 0 0 10px' width='100px' backgroundcolor='#fe9677' bgColorHover='#984063' minwidth='100px'>Previous</Button>
-                        <Button overflow='hidden' colorhover='white' onClick={()=>changePage('forward')} padding='5px' margin='5px 0 0 10px' width='100px' backgroundcolor='#fe9677' bgColorHover='#984063' minwidth='100px'>Next</Button>
+                    <FlexButtons margin='0 0 0 0' color='white' width='100%' justify='space-between' height='60px' align='center' width='80%'>
+                        <Button height='70%' overflow='hidden' onClick={()=>changePage('back')} bgColorHover='inherit' margin='0 0 0 0' width='100px' minwidth='100px'>Previous</Button>
+                        <Button height='70%' overflow='hidden' onClick={()=>changePage('forward')} bgColorHover='inherit' margin='0 0 0 0' width='100px' minwidth='100px'>Next</Button>
                     </FlexButtons>
                     
                 : null}

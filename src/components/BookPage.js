@@ -11,7 +11,7 @@ const BookPage = () => {
     useEffect(()=>{performSearch(params.id).then(res => setBookData(res.data.items.filter(function(item){return item.id == params.id})))},[params])
 
     return(
-        <Flex width='100%' height='100%' justify='center' align='flex-start' padding='25px 0 0 0' overflow='auto' >
+        <Flex width='100%' height='100%' justify='center' align='flex-start' padding='0 0 0 0' overflow='auto' >
             {bookData ? bookData.map((item) =>
                     <Book bookData={item} key={item.id} />)
                 : <Spinner margin='0 auto 0 auto'/>}

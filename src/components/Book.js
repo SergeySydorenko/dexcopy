@@ -1,10 +1,11 @@
 import Flex from "../ui/Flex"
-import LinkStyled from "../ui/LinkStyled"
+import LinkStyled, { LinkArrow } from "../ui/LinkStyled"
 import styled from "styled-components";
 
 const noImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png';
 
 const LinkBook = styled(LinkStyled)`
+    border: 1px solid black;
     @media (max-width: 768px) {
         width: 100%;
         height: 150px;
@@ -30,12 +31,15 @@ const StyledImage = styled.img`
             border: 1px solid black;
             width: 140px;
             height: 215px;
+            min-width: 140px;
+            min-height: 215px;
             margin: 0 20px 0 0;
             @media (max-width: 768px) {
                 width: 100px;
                 min-width: 100px;
                 margin: 0 10px 0 0;
                 height: 140px;
+                min-height: 140px;
             }
     `
     
@@ -66,7 +70,6 @@ const Book = ({bookData, short}) => {
         margin: '10px 0 10px 0',
     }
     const font = {
-        fontSize: '18px',
         textIndent : '30px'
     }
 
@@ -84,8 +87,9 @@ const Book = ({bookData, short}) => {
     }else{
         return(
             // <LinkStyled to={`/id=${book.id}`} width='150px' height='300px' margin='10px' padding='5px'>
-                <Flex direction="column" width='90%' align='space-around' justify='center' onClick={() => console.log(book?.id)} overflow='auto' maxHeight=' '>
-                        <BookInfo direction='row' justify='center' overflow='hidden'>
+                <Flex direction="column" width='100%' align='space-around' justify='center' onClick={() => console.log(book?.id)} overflow='auto' maxHeight=' '>
+                    <LinkArrow></LinkArrow>
+                        <BookInfo direction='row' justify='center' overflow='hidden' align='center' margin='50px 0 0 0'>
                             <StyledImage src={book?.thumbnail || noImage} ></StyledImage>
                             <Flex direction='column' overflow='hidden'>
                                 <h3 style={overflowHid}>{book?.title}</h3>
@@ -100,9 +104,9 @@ const Book = ({bookData, short}) => {
                             </Flex>
                         </BookInfo>
                         <hr style={margin}/>
-                        <p style={font}>
-                            {book?.description}
-                        </p>
+                        <Flex width='80%' margin='0 auto 0 auto' fontSize='18px' >
+                            <p style={font}>{book?.description}</p>
+                        </Flex>
                 </Flex>
             // </LinkStyled>
         )

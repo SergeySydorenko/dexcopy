@@ -22,7 +22,7 @@ const StyledDiv = styled.div`
     width: ${props => props.width || 'auto'};
     height: ${props => props.height || 'auto'};
     z-index: ${props => props.zIndex || ''};
-    color: ${props => props.color || 'black'};
+    color: ${props => props.color || 'white'};
 `
 const StyledAccordeon = styled(StyledDiv)`
     @media screen{

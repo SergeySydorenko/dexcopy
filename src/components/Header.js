@@ -21,15 +21,15 @@ const HomeButton = styled(LinkStyled)`
 const InputFlex = styled(Flex)`
     border: none;
     outline: none;
-    width: 80%;
+    width: 100%;
     border-radius: 25px;
-    border: 2px solid #984063;
-    background-color: #fe9677;
+    border: 2px solid black;
+    background-color: white;
     height: 50px;
     margin: 5px;
     font-size: 20px;
     &:hover{
-        border: 2px solid #f64668;
+        border: 2px solid black;
     }
     @media (max-width: 768px){
         height: 40px;
@@ -82,8 +82,8 @@ const Header = (props)=>{
     }
     
     return(
-        <Flex justify='space-between' align='center' position='sticky' height='60px' top='0px' padding='5px' backgroundColor='#41436A' overflow='hidden'>
-                <HomeButton 
+        <Flex width='100%' direction='column' justify='center' align='center' position='sticky' height='100%' top='0px' padding='5px' backgroundColor='#41436A' overflow='hidden'>
+                {/* <HomeButton 
                     to='/' 
                     padding='5px' 
                     margin='0 0 0 10px' 
@@ -95,10 +95,11 @@ const Header = (props)=>{
                     fontSize='20px'
                 >
                     Home
-                </HomeButton>
-                <StyledForm onSubmit={e => search(e)}>
+                </HomeButton> */}
+                <Flex color='white' fontSize='20px'>Try to find book using this amezing input</Flex>
+                <StyledForm onSubmit={e => search(e)} >
                     <InputFlex justify='flex-start' align='center' color='white' width='100%'>
-                        <Input placeholder='Book title, author, genre etc.'/>
+                        <Input type='text' placeholder='Write your book title here'/>
                         <ResetButton fontSize='16px' type='reset' margin='0 10px 0 0'>X</ResetButton>
                         {/* <InputButton fontSize='16px'>
                             Search

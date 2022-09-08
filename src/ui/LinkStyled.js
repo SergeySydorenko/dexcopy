@@ -13,7 +13,7 @@ const StyledLink = styled(Link)`
     margin: ${props => props.margin || '0'};
     padding: ${props => props.padding || '5px 0 5px 10px'};
     font-size: ${props => props.fontsize || 'inherit'};
-    border: ${props => props.border || '0'};
+    border: ${props => props.border || '1px solid white'};
     border-radius: ${props => props.borderRadius || '5px'};
     background-color: ${props => props.backgroundcolor || 'inherit'};
     &:hover{
@@ -21,7 +21,6 @@ const StyledLink = styled(Link)`
         transition: .4s
     }
 `
-
 
 const LinkStyled = ({children, ...props}) =>{
 
@@ -32,4 +31,23 @@ const LinkStyled = ({children, ...props}) =>{
     )
 }
 
+const Arrow = styled(LinkStyled)`
+    color: white;
+    width: 70px;
+    align-self: flex-start;
+    margin: 15px 0 0 0;
+    border: none;
+    &:hover{
+        /* border: 1px solid white; */
+        color:black;
+    }
+`
+
+export const LinkArrow = (props) =>{
+        return(
+        <Arrow to='/' {...props}>
+            <ion-icon name="arrow-back-outline" size='large'></ion-icon>
+        </Arrow>
+        )
+}
 export default LinkStyled;

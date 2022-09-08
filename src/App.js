@@ -6,6 +6,18 @@ import Flex from "./ui/Flex.js";
 import axios from "axios";
 import {Outlet} from "react-router-dom";
 import Footer from "./components/Footer.js";
+import LinkStyled from "./ui/LinkStyled.js";
+import styled from "styled-components";
+
+const LinkAbout = styled(LinkStyled)`
+  font-size: 18px;
+  /* &:hover{
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    transition: .4s;
+  } */
+`
 
 function App() {
   let [navPanel, setNavPanel] = useState();
@@ -35,15 +47,11 @@ function App() {
     }
 }
   return (
-    <Flex className="App" direction='row' justify='space-between' height='100vh'>
-      {window.addEventListener('resize', resize)}
-      {/* <Navigation showNav={changeVisibility} transform={navPanel}></Navigation> */}
-      <Flex className="main" direction='column' width='100%' height='100%' justify='flex-start' overflow='auto' flexGrow='1' backgroundColor='white'>
-        <Header showNav={changeVisibility} visibility={navButton} bookData={bookData}></Header>
-        {/* {bookData ? <Main bookData={bookData} pagination={pagination}/> : <h2>Now there is no books. Try to search.</h2>} */}
+    <Flex className="App" direction='column' align='center' height='100vh' backgroundColor='#41436A'>
         <Outlet/>
-        <Footer/>
-      </Flex>
+        <Flex >
+          <LinkAbout to='/about' color='white' margin='0 0 10px 0' border='1px solid white' width='80px' padding='1px 0 5px 0'>About</LinkAbout>
+        </Flex>
     </Flex>
   );
 }

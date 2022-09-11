@@ -5,7 +5,11 @@ import styled from "styled-components";
 const noImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png';
 
 const LinkBook = styled(LinkStyled)`
-    border: 1px solid black;
+    border: none;
+    &:hover{
+        border: 1px solid white;
+        transition: .3s;
+    }
     @media (max-width: 768px) {
         width: 100%;
         height: 150px;
@@ -44,7 +48,6 @@ const StyledImage = styled.img`
     `
     
 const Book = ({bookData, short}) => {
-
 
     let book = {
         id: bookData?.id,
@@ -104,7 +107,7 @@ const Book = ({bookData, short}) => {
                             </Flex>
                         </BookInfo>
                         <hr style={margin}/>
-                        <Flex width='80%' margin='0 auto 0 auto' fontSize='18px' >
+                        <Flex width='80%' margin='0 auto 0 auto' fontSize='18px'>
                             <p style={font}>{book?.description}</p>
                         </Flex>
                 </Flex>

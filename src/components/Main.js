@@ -22,29 +22,25 @@ const Main = (props) =>{
 
 
 
-    let [bookData , setBookData] = useState();
+    let [bookData , setBookData] = useState([]);
     let [totalPages, SetTotalPages] = useState();
     let [page, setPage] = useState(0)
 
     useEffect(()=>{
-        topFunction()
         performSearch(params.id, page).then(res => {
-            setBookData(res.data);
-            console.log(bookData);
+            setBookData([...bookData, ...res.data.items]);
             SetTotalPages(Math.ceil(res?.data?.totalItems/10))
         })
     },[params,page])
-
-
-    function topFunction() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-      }
+    // console.log(bookData)
 
     const changePage = (movePage) =>{
         if(movePage == 'forward' && page < totalPages){
             setPage(Number(page+20));
-            // myRef.current.scrollIntoView();
+            // performSearch(params.id, page).then(res => {
+            //     setBookData([...bookData, ...res.data.items]);
+            //     console.log(bookData);
+            // })
         }
         if(movePage == 'back' && page > 1){
             setPage(Number(page-20));
@@ -64,24 +60,24 @@ const Main = (props) =>{
             {/* {bookData ? <h3>Books found: {bookData?.totalItems}</h3> : null} */}
             {/* <Flex direction='row' width='100%' justify='stretch' height='100%'> */}
                 <Flex direction='row' justify='center' align='center' width="100%" height='100%' overflow='scroll' wrap='wrap'>
-                    {bookData ? bookData?.items.map((item) =>
+                    {bookData ? bookData?.map((item, index) =>
                         // <LinkStyled to={`/id=${item.id}`} key={item.id} >
-                            <Book bookData={item} short='true' key={item.id}/>
+                            <Book bookData={item} short='true' key={index}/>
 
                         ) 
                         : <Spinner/>
                         }
                 </Flex>
                 {totalPages ? 
-                    <FlexButtons margin='0 0 0 0' color='white' width='100%' justify='space-between' height='60px' align='center' width='80%'>
-                        <Button height='70%' overflow='hidden' onClick={()=>changePage('back')} bgColorHover='inherit' margin='0 0 0 0' width='100px' minwidth='100px'>Previous</Button>
-                        <Button height='70%' overflow='hidden' onClick={()=>changePage('forward')} bgColorHover='inherit' margin='0 0 0 0' width='100px' minwidth='100px'>Next</Button>
+                    <FlexButtons margin='0 0 0 0' color='white' width='100%' justify='center' height='60px' align='center' width='80%'>
+                        <Button height='70%' overflow='hidden' onClick={()=>changePage('forward')} bgColorHover='inherit' margin='0 0 0 0' width='110px' minwidth='110px'>Load More</Button>
                     </FlexButtons>
                     
                 : null}
             {/* </Flex> */}
         </Flex>
     )}catch (err){
+        console.log(err)
         return(
             <Flex>
                 Book is not found.

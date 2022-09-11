@@ -96,7 +96,7 @@ const Header = (props)=>{
                 >
                     Home
                 </HomeButton> */}
-                <Flex color='white' fontSize='20px'>Try to find book using this amezing input</Flex>
+                <Flex color='white' fontSize='20px'>Try to type book's title</Flex>
                 <StyledForm onSubmit={e => search(e)} >
                     <InputFlex justify='flex-start' align='center' color='white' width='100%'>
                         <Input type='text' placeholder='Write your book title here'/>

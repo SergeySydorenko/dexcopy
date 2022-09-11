@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {Link} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const StyledLink = styled(Link)`
     text-decoration: none;
@@ -31,7 +32,10 @@ const LinkStyled = ({children, ...props}) =>{
     )
 }
 
-const Arrow = styled(LinkStyled)`
+const Arrow = styled.a`
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
     color: white;
     width: 70px;
     align-self: flex-start;
@@ -44,10 +48,11 @@ const Arrow = styled(LinkStyled)`
 `
 
 export const LinkArrow = (props) =>{
-        return(
-        <Arrow to='/' {...props}>
-            <ion-icon name="arrow-back-outline" size='large'></ion-icon>
-        </Arrow>
-        )
+    let navigate = useNavigate();
+    return(
+    <Arrow {...props} onClick={()=>navigate(-1)}>
+        <ion-icon name="arrow-back-outline" size='large'></ion-icon>
+    </Arrow>
+    )
 }
 export default LinkStyled;
